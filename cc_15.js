@@ -27,8 +27,14 @@ function addRiskItem(riskName, riskLevel, department) {
 
   // Task 3: Removing Risk Items
   const resolveBtn = riskCard.querySelector(".resolveBtn");
-  resolveBtn.addEventListener("click", () => {
+  resolveBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevent event from bubbling up
     riskDashboard.removeChild(riskCard); // Remove the risk card
+  });
+
+  // Task 6: Handling Event Propagation
+  riskCard.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevent event from bubbling up
   });
 
   // Append the risk card to the dashboard
@@ -78,5 +84,6 @@ increaseRiskLevelsBtn.addEventListener("click", () => {
   });
 });
 
-// Test Case
-//addRiskItem("Employee Retention", "Low", "HR");
+
+//Test Case
+// Click inside a risk card should not trigger a dashboard-wide event.
