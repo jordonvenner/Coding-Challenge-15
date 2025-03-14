@@ -4,7 +4,6 @@ console.log("Risk Dashboard Loaded");
 
 
 
-
 // Task 2: Adding Risk Items Dynamically
 function addRiskItem(riskName, riskLevel, department) {
     // Create a new risk card (div)
@@ -18,6 +17,15 @@ function addRiskItem(riskName, riskLevel, department) {
       <p><strong>Department:</strong> ${department}</p>
       <button class="resolveBtn">Resolve</button>
     `;
+  
+    // Task 4: Categorizing Risks by Level
+    if (riskLevel === "Low") {
+      riskCard.style.backgroundColor = "green"; // Green background
+    } else if (riskLevel === "Medium") {
+      riskCard.style.backgroundColor = "yellow"; // Yellow background
+    } else if (riskLevel === "High") {
+      riskCard.style.backgroundColor = "red"; // Red background
+    }
   
     // Task 3: Removing Risk Items
     const resolveBtn = riskCard.querySelector(".resolveBtn");
@@ -47,8 +55,6 @@ function addRiskItem(riskName, riskLevel, department) {
     }
   });
 
-// Test Case
-//addRiskItem("Market Fluctuations", "High", "Finance");
-
-
-
+//Test Case
+//addRiskItem("Cybersecurity Threat", "High", "IT");
+//addRiskItem("HR Compliance Issue", "Low", "Human Resources");
